@@ -1,0 +1,38 @@
+{
+    "name": "taskforge",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint .",
+        "test": "node --test tests/unit.test.js",
+        "test:browser": "node --env-file=.env.local tests/browser.js"
+    },
+    "type": "module",
+    "dependencies": {
+        "lucide-react": "^1.78.0",
+        "mongodb": "^7.9.1",
+        "react": "^19.3.1",
+        "react-dom": "^19.3.1",
+        "react-router-dom": "^7.18.6",
+        "recharts": "^3.11.0",
+        "sharp": "^0.35.5"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.5",
+        "@tailwindcss/vite": "^4.3.5",
+        "@vitejs/plugin-react": "^6.3.0",
+        "eslint": "^9.39.5",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^7.1.1",
+        "globals": "^17.14.0",
+        "playwright": "^1.65.1",
+        "tailwindcss": "^4.3.5",
+        "vite": "^8.3.8"
+    },
+    "private": true,
+    "engines": {
+        "node": ">=22.13.0"
+    }
+}

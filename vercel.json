@@ -1,0 +1,27 @@
+{
+  "framework": "vite",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {"key":"Content-Security-Policy","value":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"},
+        {"key":"Strict-Transport-Security","value":"max-age=31536000"},
+        {"key":"X-Content-Type-Options","value":"nosniff"},
+        {"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"},
+        {"key":"Permissions-Policy","value":"camera=(), microphone=(), geolocation=()"}
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [{"key":"Cache-Control","value":"no-cache"}]
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "headers": [
+        {"key":"Content-Type","value":"application/manifest+json"},
+        {"key":"Cache-Control","value":"no-cache"}
+      ]
+    }
+  ],
+  "rewrites": [{"source": "/((?!api/|api$|assets/|images/|manifest\\.webmanifest|sw\\.js|register-sw\\.js|favicon\\.|icon-|maskable-icon-|apple-touch-icon\\.).*)", "destination": "/index.html"}]
+}

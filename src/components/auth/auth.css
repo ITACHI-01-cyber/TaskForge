@@ -1,0 +1,72 @@
+@reference "tailwindcss";
+
+.auth-screen {
+  @apply grid place-items-center;
+  min-height: 100dvh;
+  padding: 24px;
+  background: #1c1d20 url('/images/auth-mountains.png') center / cover no-repeat;
+  background-image: image-set(url('/images/auth-mountains.webp') type('image/webp'), url('/images/auth-mountains.png') type('image/png'));
+}
+.auth-card {
+  @apply relative isolate grid overflow-hidden;
+  width: min(100%, 836px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid #ffffff55;
+  border-radius: 21px;
+  background: #272727a8;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 70px #0006;
+}
+.auth-content { @apply relative z-10; padding: 29px clamp(20px, 2.4vw, 34px) 30px clamp(28px, 4.2vw, 60px); animation: auth-reveal .22s ease-out both; }
+.auth-brand { @apply flex items-center gap-1 font-bold; font-size: 18px; letter-spacing: -.025em; margin-bottom: 21px; }
+.auth-brand svg, .auth-brand b { color: #f6d45e; }
+.auth-content h1 { font-size: 32px; font-weight: 750; letter-spacing: -.04em; line-height: 1.1; }
+.auth-intro { color: #d0d0d0; margin: 6px 0 17px; }
+.auth-form { @apply grid; gap: 10px; }
+.auth-form label { display: block; font-weight: 600; }
+.auth-input { @apply flex items-center gap-3; min-height: 42px; margin-top: 4px; padding: 0 12px; border: 1px solid #ffffff35; border-radius: 999px; background: #ffffff08; color: #ccc; }
+.auth-input:focus-within { border-color: var(--gold); }
+.auth-input svg { flex: none; }
+.auth-input input { flex: 1; min-width: 0; width: 100%; color: #fff; outline: none; font-weight: 400; }
+.auth-input input::placeholder { color: #b2b2b2; }
+.auth-password-toggle { display: grid; place-items: center; width: 32px; height: 36px; margin-right: -6px; border-radius: 50%; flex: none; }
+.auth-password-toggle:hover { color: var(--gold); }
+.auth-submit { width: 100%; min-height: 42px; border: 1px solid #ffffff25; border-radius: 999px; background: #111; margin-top: 4px; font-weight: 700; transition: background .16s; }
+.auth-submit:hover { background: #222; }
+.auth-switch { margin-top: 17px; text-align: center; color: #ddd; }
+.auth-switch a { text-decoration: underline; text-underline-offset: 3px; color: #f6d45e; font-weight: 600; }
+.auth-error { padding: 7px 10px; border-radius: 7px; color: #ffc7c7; background: #4c2426; overflow-wrap: anywhere; }
+.auth-art { position: relative; background: linear-gradient(90deg, transparent, #080808 39%); }
+.auth-cat { position: absolute; inset: 0; width: 100%; height: 100%; mask-image: linear-gradient(90deg, transparent 6%, #000 26%); }
+@keyframes auth-reveal { from { opacity: .5; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 640px) {
+  .auth-screen { padding: 16px; }
+  .auth-card { grid-template-columns: minmax(0, 1fr); max-width: 420px; }
+  .auth-content { padding: 25px 22px; }
+  .auth-art { display: none; }
+  .auth-input, .auth-submit { min-height: 46px; }
+  .auth-input input { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .auth-content { animation: none; }
+  .auth-submit { transition: none; }
+}
+
+/* Keep the focus indicator on the rounded wrapper, including keyboard focus. */
+.auth-input input[type=email],
+.auth-input input[type=email]:focus,
+.auth-input input[type=email]:focus-visible {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  color: #fff;
+  caret-color: currentColor;
+}
+.auth-input input[type=email]:-webkit-autofill {
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  background-clip: text;
+}
+.auth-input input[type=email]:autofill { background-clip: text; }
